@@ -1,0 +1,11 @@
+<form (submit)="addTodo()">
+    <input
+        type="text"
+        name="inputTodo"
+        placeholder="Write here..."
+        class="todo-input"
+        [(ngModel)]="inputTodo"
+    />
+
+    <input type="submit" value="Add todo" class="todo-submit"/>
+</form>

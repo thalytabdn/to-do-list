@@ -1,0 +1,9 @@
+<h2>Todo list</h2>
+
+<app-form (saveTodo)="saveTodo($event)"></app-form>
+
+<app-todo-list 
+    [todos]="todos" 
+    (toggleTodo)="doneTodo($event)"
+    (removeTodo)="removeTodo($event)"
+></app-todo-list>
