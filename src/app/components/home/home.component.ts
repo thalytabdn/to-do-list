@@ -23,18 +23,22 @@ export class HomeComponent implements OnInit {
     this.newTodo.id = (this.newTodo.id) ? this.newTodo.id : new Date().getTime().toString();
     this.newTodo.content = content;
     this.newTodo.completed = false;
-    this.todos = this.todosService.getAll();
+
     this.todosService.save(this.newTodo);
+    this.todos = this.todosService.getAll();
+    this.newTodo = new Todo();
   }
 
   doneTodo(id: string){
     var todoAux = this.todosService.getTodo(id);
     todoAux.completed = !todoAux.completed;
     this.todosService.save(todoAux);
+    this.todos = this.todosService.getAll();
   }
 
   removeTodo(id: string){
     var todoAux = this.todosService.getTodo(id);
     this.todosService.delete(todoAux);
+    this.todos = this.todosService.getAll();
   }
 }
